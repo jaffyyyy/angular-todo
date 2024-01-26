@@ -1,0 +1,10 @@
+<button
+  [type]="type"
+  (click)="onClickButton()"
+  class="app_button"
+  [ngClass]="{
+    primary: color === 'primary'
+  }"
+>
+  {{ label }}
+</button>

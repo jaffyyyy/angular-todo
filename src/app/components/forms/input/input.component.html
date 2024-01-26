@@ -1,0 +1,11 @@
+<div class="app_input">
+  <search-icon *ngIf="showSearchIcon" class="search_icon"></search-icon>
+  <input
+    [type]="type"
+    [value]="value"
+    [name]="name"
+    [ngClass]="{
+      has_search: showSearchIcon
+    }"
+  />
+</div>
