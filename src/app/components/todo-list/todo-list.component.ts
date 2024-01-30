@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../forms/button/button.component';
 import { Todos } from '../../types/Todo';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { TaskIconComponent } from '../icons/task-icon/task-icon.component';
+import { DottedIconComponent } from '../icons/dotted-icon/dotted-icon.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, HeaderComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    TaskIconComponent,
+    DottedIconComponent,
+    MatMenuModule,
+    MatButtonModule,
+  ],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css',
 })

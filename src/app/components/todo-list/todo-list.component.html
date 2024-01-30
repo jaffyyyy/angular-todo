@@ -1,10 +1,29 @@
 <div class="todo_con">
   <app-header [value]="searchText"></app-header>
-  <app-button label="ADD" type="button"></app-button>
-  <div class="todo_list">
+
+  <div class="todo_list" *ngIf="mockTodos.length > 0; else emptyList">
     <div class="todo_item" *ngFor="let todo of mockTodos">
       {{ todo.title }}
-      <input type="checkbox" />
+      <div style="position: relative">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <app-dotted-icon class="more" />
+        </button>
+        <mat-menu
+          #menu="matMenu"
+          class="add_update_menu"
+          [overlapTrigger]="false"
+        >
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </div>
     </div>
   </div>
+  <ng-template #emptyList>
+    <div class="empty_con">
+      <app-task-icon />
+      <p class="sub_title">To do list increases productivity</p>
+      <div class="add">Add your first to do</div>
+    </div>
+  </ng-template>
 </div>

@@ -3,3 +3,43 @@
   flex-direction: column;
   gap: 15px;
 }
+
+.todo_list {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.todo_item {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.more {
+  cursor: pointer;
+}
+
+.empty_con {
+  padding: 45px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.sub_title {
+  color: #828282;
+  font-size: 14px;
+}
+
+.add {
+  color: #2f80ed;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add_update_menu {
+}
