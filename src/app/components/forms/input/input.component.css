@@ -2,13 +2,6 @@
   position: relative;
 }
 
-.search_icon {
-  position: absolute;
-  left: 10px;
-  bottom: 0;
-  top: 8px;
-}
-
 .app_input input {
   width: 100%;
   height: 32px;
@@ -21,9 +14,29 @@
   padding: 10px 10px 10px 30px;
 }
 
+.app_input input.updating {
+  padding: 10px 30px 10px 10px;
+}
+
 .app_input input:active,
 .app_input input:focus,
 .app_input input:target {
   border: 1px solid #2f80ed;
   outline: none !important;
+}
+
+.icon_right {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  top: 6px;
+  cursor: pointer;
+}
+
+.search_icon {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  top: 8px;
+  cursor: pointer;
 }

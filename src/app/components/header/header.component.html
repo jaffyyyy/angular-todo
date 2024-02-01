@@ -8,7 +8,11 @@
 
   <div class="header_inputs">
     <div class="item">
-      <app-input [value]="value" [showSearchIcon]="showSearchIcon"></app-input>
+      <app-input
+        [value]="value"
+        [showSearchIcon]="showSearchIcon"
+        [showClearIcon]="showClearIcon"
+      ></app-input>
     </div>
     <app-button label="Select" color="primary"></app-button>
   </div>

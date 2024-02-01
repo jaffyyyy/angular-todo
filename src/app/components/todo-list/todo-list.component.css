@@ -15,6 +15,18 @@
   color: #333;
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
+}
+
+.todo_item.selected {
+  color: #9eb7da;
+  text-decoration: line-through;
+}
+
+.plus_btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
 }
 
 .more {

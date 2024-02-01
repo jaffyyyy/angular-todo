@@ -12,5 +12,7 @@ import { ButtonComponent } from '../forms/button/button.component';
 })
 export class HeaderComponent {
   @Input() value: string = '';
-  @Input() showSearchIcon = true;
+  @Input() showSearchIcon = false;
+  @Input() showClearIcon?: boolean = true;
+  @Input() currentAction?: 'ADD' | 'UPDATE' | 'DELETE';
 }
