@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Todos } from '../../types/Todo';
+import { Todo, Todos } from '../../types/Todo';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { TaskIconComponent } from '../icons/task-icon/task-icon.component';
@@ -27,7 +27,9 @@ export class TodoListComponent {
   searchText: string = '';
   showClearIcon: boolean = false;
   showSearchIcon: boolean = true;
-  // currentAction?: 'ADD' | 'UPDATE' | 'DELETE';
+  currentAction?: 'ADD' | 'UPDATE' | 'DELETE';
+  isDeleting: boolean = false;
+  currentState?: Todo;
 
   mockTodos: Todos = [
     {
@@ -47,4 +49,31 @@ export class TodoListComponent {
       isCompleted: false,
     },
   ];
+
+  onClickBack() {
+    this.currentAction = undefined;
+  }
+
+  onClickAdd() {
+    this.currentAction = 'ADD';
+  }
+
+  onDeleteModalClick(id: string) {
+    this.currentAction = 'DELETE';
+    this.isDeleting = true;
+    this.currentState = this.mockTodos.find((todo) => todo.id === id);
+  }
+
+  // DELTE?
+  onClickYes() {
+    this.mockTodos = this.mockTodos.filter(
+      (todo) => todo.id !== this.currentState?.id
+    );
+    this.currentAction = undefined;
+    this.isDeleting = false;
+  }
+  onClickNo() {
+    this.currentAction = undefined;
+    this.isDeleting = false;
+  }
 }

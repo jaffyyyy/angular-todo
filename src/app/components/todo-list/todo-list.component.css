@@ -53,5 +53,52 @@
   cursor: pointer;
 }
 
-.add_update_menu {
+.delete_con {
+  height: 111px;
+  width: 320px;
+  background-color: #eef3f6;
+  padding: 25px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  text-align: center;
+}
+
+.delete_con span {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.buttons_con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.buttons_con button {
+  padding: 5px 10px;
+  border: 0;
+  min-width: 50px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttons_con button:hover {
+  opacity: 0.8;
+}
+
+button.btn_no {
+  background: #fce0e0;
+  color: #ed2f2f;
+}
+button.btn_yes {
+  background: #2f80ed;
+  color: #fff;
 }

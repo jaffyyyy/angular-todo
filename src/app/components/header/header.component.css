@@ -24,3 +24,20 @@
 .item {
   flex-grow: 1;
 }
+
+.add_header {
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+}
+
+.back_icon {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.add_header span {
+  line-height: 100%;
+  font-weight: bold;
+  font-size: 16px;
+}

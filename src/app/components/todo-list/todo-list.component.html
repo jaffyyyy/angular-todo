@@ -1,34 +1,55 @@
 <div class="todo_con">
   <app-header
+    [currentAction]="currentAction"
     [value]="searchText"
     [showClearIcon]="showClearIcon"
     [showSearchIcon]="showSearchIcon"
+    (onClickBackEvent)="onClickBack()"
   ></app-header>
 
-  <div class="todo_list" *ngIf="mockTodos.length > 0; else emptyList">
-    <div *ngFor="let todo of mockTodos">
-      <div
-        class="todo_item"
-        [ngClass]="{
-          selected: todo.isSelected
-        }"
-      >
-        {{ todo.title }}
-        <div style="position: relative">
-          <div [matMenuTriggerFor]="menu">
-            <app-dotted-icon class="more" />
+  <div *ngIf="currentAction !== 'ADD'">
+    <div class="todo_list" *ngIf="mockTodos.length > 0; else emptyList">
+      <div *ngFor="let todo of mockTodos">
+        <div
+          class="todo_item"
+          [ngClass]="{
+            selected: todo.isSelected
+          }"
+        >
+          {{ todo.title }}
+          <div style="position: relative">
+            <div [matMenuTriggerFor]="menu">
+              <app-dotted-icon class="more" />
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Update</button>
+              <button mat-menu-item (click)="onDeleteModalClick(todo.id)">
+                Delete
+              </button>
+            </mat-menu>
           </div>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Update</button>
-            <button mat-menu-item>Delete</button>
-          </mat-menu>
         </div>
       </div>
     </div>
   </div>
-  <button mat-mini-fab color="primary" class="plus_btn">
+  <button
+    *ngIf="!currentAction"
+    mat-mini-fab
+    color="primary"
+    class="plus_btn"
+    (click)="onClickAdd()"
+  >
     <app-plus-icon />
   </button>
+
+  <div class="delete_con" *ngIf="isDeleting">
+    <span>Delete to do?</span>
+    <div class="buttons_con">
+      <button class="btn_no" (click)="onClickNo()">No</button>
+      <button class="btn_yes" (click)="onClickYes()">Yes</button>
+    </div>
+  </div>
+
   <ng-template #emptyList>
     <div class="empty_con">
       <app-task-icon />
